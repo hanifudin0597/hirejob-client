@@ -1,0 +1,45 @@
+.container-fluid {
+    background-color: #FDF7F2;
+}
+
+.navbar {
+    background-color: transparent !important;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.navContent {
+    position: relative;
+}
+
+.iconUser {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+
+.iconNavbar {
+    width: 25x;
+    height: 25x;
+    margin-right: 20px;
+}
+
+
+.buttonLogin {
+    width: 100px;
+    height: 50px;
+    background-color: white !important;
+    color: black;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.buttonDaftar {
+    width: 100px;
+    height: 50px;
+    background-color: #5E50A1 !important;
+    color: white;
+    border-radius: 10px;
+    margin-left: 20px;
+}

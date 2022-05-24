@@ -1,0 +1,168 @@
+/* LogoLogin */
+.decoration {
+    height: 100vh;
+    /* background-color: #5E50A1; */
+    width: 50%;
+}
+
+.decorH1 {
+    width: 100%;
+    /* margin-left: 15%; */
+    color: white;
+}
+
+.decoration::after {
+    content: "";
+    height: 100vh;
+    width: 50%;
+    position: absolute;
+    background-color: #5E50A1;
+    opacity: 0.7;
+    z-index: 99 !important;
+}
+
+.imgDecoration {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+}
+
+.formLogoLogin {
+    position: absolute;
+    z-index: 999;
+    width: 50%;
+    text-align: center;
+    top: 30vh;
+}
+
+
+.formInput {
+    background-color: white;
+    margin-top: 70px;
+    /* width: 50%; */
+}
+
+.formGroup {
+    top: 150px !important;
+    /* left: 900px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inputH1 {
+    color: #1F2A36;
+    font-size: 35px;
+    /* text-align: left; */
+    width: 50%;
+    display: flex;
+}
+
+.inputSmall {
+    font-size: 15px;
+    padding: 15px 0px 15px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    text-align: left;
+    font-family: 'Inter', normal;
+    color: #8692A6;
+}
+
+.inputLabel {
+    font-size: 15px;
+    display: flex;
+    padding: 15px 0px 15px;
+    flex-direction: column;
+}
+
+.formInputType {
+    border: 1px solid #8692A6;
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #F6F5F4; */
+}
+
+.formInputType:focus {
+    border: none;
+    outline: 1px solid #EFC81A;
+}
+
+.formCheck {
+    display: flex;
+    flex-direction: row;
+}
+
+.formCheckBox {
+    width: 15px !important;
+    height: 15px !important;
+    accent-color: #EFC81A;
+    margin-top: 20px;
+    margin-right: 15px;
+}
+
+.inputlabelCheckBox {
+    padding-top: 16px;
+}
+
+.inputButton {
+    border: none;
+    background-color: #FBB017;
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 40px;
+}
+
+.inputAhref {
+    display: flex;
+    justify-content: right;
+    font-size: 13px;
+    color: #999999;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.inputAhrefLink {
+    /* display: flex;
+    justify-content: right;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #999999; */
+    text-decoration: none !important;
+    color: black !important;
+    margin-left: 5px;
+    margin-top: 30px;
+}
+
+.formNoAccount {
+    display: flex;
+    justify-content: center;
+}
+
+.inputAhrefRegister {
+    margin-top: 1px;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+/* specially for register */
+.contain {
+    /* overflow: none; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+.overflowRegisterScroll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+}

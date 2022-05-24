@@ -1,0 +1,104 @@
+.header {
+    background-color: #5E50A1;
+    height: 10vh;
+
+}
+
+.labelHeader {
+    margin-left: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    margin-top: 15px;
+}
+
+.bodyContent {
+    background-color: #E5E5E5;
+    /* padding: 4rem 0; */
+    min-height: 100vh;
+}
+
+.contentListUser {
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+.inputSearch {
+    width: 83%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 15px;
+}
+
+.buttonSearch {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 5px;
+    background-color: #5E50A1;
+    border: none;
+    color: white;
+}
+
+.cardListUser {
+    width: 85%;
+    margin-left: 100px;
+}
+
+.userPhoto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.userName {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.userPosition {
+    color: #9EA0A5;
+}
+
+.location {
+    margin-top: -10px;
+}
+
+.imgLocation {
+    margin-top: -10px;
+}
+
+.userLocation {
+    color: #9EA0A5;
+    margin-left: 10px;
+}
+
+.widthSkills {
+    width: 50%;
+}
+
+.skills {
+    width: auto;
+    height: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #FBB017;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.detailUser {
+    margin-top: 50%;
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5E50A1;
+    color: white;
+}

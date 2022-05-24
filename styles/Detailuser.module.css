@@ -1,0 +1,161 @@
+.header {
+    background-color: #5E50A1;
+    height: 35vh;
+}
+
+
+.bodyContent {
+    background-color: #E5E5E5;
+    min-height: 150vh;
+}
+
+.CardContent {
+    margin-top: 60px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.spasi {
+    margin-right: 25px;
+}
+
+.photoUser {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-left: 25%;
+}
+
+.editProfile {
+    margin-left: 32%;
+    margin-top: 20px;
+}
+
+.userName {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.userPosition {
+    color: #9EA0A5;
+    margin-left: 10px;
+}
+
+.location {
+    margin-top: -10px;
+    margin-left: 10px;
+}
+
+.imgLocation {
+    margin-top: -10px;
+    margin-left: -4px;
+}
+
+.userLocation {
+    color: #9EA0A5;
+    margin-left: 10px;
+}
+
+.typeWork {
+    color: #9EA0A5;
+    margin-left: 10px;
+}
+
+.description {
+    color: #9EA0A5;
+    margin-left: 10px;
+}
+
+.buttonHire {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 12%;
+    background-color: #5E50A1;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.buttonLogout {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 12%;
+    background-color: red;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.skill {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.widthSkills {
+    margin-left: 10px;
+}
+
+.listSkill {
+    width: auto;
+    height: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #FBB017;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.photoPortofolio {
+    width: 238px;
+    height: 180px;
+    border-radius: 5px;
+}
+
+.detailPortofolio {
+    margin-right: 10px;
+}
+
+.photoExp {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.expName {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.expDate {
+    color: #9EA0A5;
+    margin-top: -14px;
+}
+
+/* Nav Tabs */
+
+.nabTab {
+    width: 100%;
+}
+
+.widthCardBody {
+    max-width: 100%;
+}
+
+.formPortofolio {
+    margin-top: 20px;
+}
+
+.tabContentNav {
+    width: 100%;
+}
