@@ -43,3 +43,8 @@
     border-radius: 10px;
     margin-left: 20px;
 }
+
+.buttonMyProfile {
+    background-color: white;
+    border: none;
+}

@@ -2,7 +2,7 @@
 .decoration {
     height: 100vh;
     /* background-color: #5E50A1; */
-    width: 50%;
+    width: 100%;
 }
 
 .decorH1 {
@@ -14,11 +14,12 @@
 .decoration::after {
     content: "";
     height: 100vh;
-    width: 50%;
+    width: 47%;
     position: absolute;
     background-color: #5E50A1;
     opacity: 0.7;
     z-index: 99 !important;
+    left: 0px;
 }
 
 .imgDecoration {
@@ -40,6 +41,7 @@
     background-color: white;
     margin-top: 70px;
     /* width: 50%; */
+
 }
 
 .formGroup {
@@ -61,13 +63,14 @@
 }
 
 .inputSmall {
-    font-size: 15px;
+    font-size: 20px;
     padding: 15px 0px 15px;
     /* display: flex; */
     /* flex-direction: column; */
     text-align: left;
     font-family: 'Inter', normal;
     color: #8692A6;
+    width: 74%;
 }
 
 .inputLabel {
@@ -79,7 +82,7 @@
 
 .formInputType {
     border: 1px solid #8692A6;
-    width: 400px;
+    width: 500px;
     height: 40px;
     border-radius: 5px;
     display: flex;
@@ -87,6 +90,7 @@
     justify-content: center;
     align-items: center;
     /* background-color: #F6F5F4; */
+    padding-left: 13px;
 }
 
 .formInputType:focus {
@@ -114,7 +118,7 @@
 .inputButton {
     border: none;
     background-color: #FBB017;
-    width: 400px;
+    width: 500px;
     height: 35px;
     border-radius: 5px;
     color: white;

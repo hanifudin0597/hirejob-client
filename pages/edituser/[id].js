@@ -20,9 +20,6 @@ const EditUser = (props) => {
     const { id } = router.query
     const token = props.token
 
-    // console.log(token)
-
-    // 
     const [photo, setPhoto] = useState("")
     const [isChangePhoto, setIsChangePhoto] = useState(false)
     const [dataUser, setDataUser] = useState('')
@@ -33,7 +30,7 @@ const EditUser = (props) => {
     const [address, setAddress] = useState('')
     const [workplace, setWorkplace] = useState('')
     const [description, setDescription] = useState('')
-    const [skillName, setSkillName] = useState({})
+    const [skillName, setSkillName] = useState('')
 
     // add experience
     const [jobPosition, setJobPosition] = useState('')
@@ -64,7 +61,7 @@ const EditUser = (props) => {
         const formData = new FormData();
         formData.append("photo", photo)
 
-        axios.put(`http://localhost:5002/user/${id}/photo`, {
+        axios.put(`http://localhost:5002/user/${id}/photo`, formData, {
             'Access-Control-Allow-Origin': true,
             headers: { token },
             "Content-Type": "multipart/form-data"
@@ -75,6 +72,7 @@ const EditUser = (props) => {
                     title: 'Success',
                     text: 'Update Photo successfully',
                 })
+                window.location.reload()
             })
             .catch((err) => {
                 console.log(err)
@@ -85,6 +83,14 @@ const EditUser = (props) => {
                 })
             })
     }
+
+    // const getSkill = (e) => {
+    //     e.preventDefault()
+    //     let value = Array.from(e.target.selectedOptions, option => option.value);
+    //     this.setState({ values: value });
+    // }
+
+    // console.log(skillName)
 
     // update profile
     const onUpdateUser = (e) => {
@@ -104,7 +110,7 @@ const EditUser = (props) => {
                 address: address,
                 workplace: workplace,
                 description: description,
-                skillName: skillName
+                skillName: `{${skillName}}`
             }
             axios.put(`http://localhost:5002/user/${id}`, body, {
                 headers: { token }
@@ -212,11 +218,19 @@ const EditUser = (props) => {
                         <div className={`col-lg-4 col-12 `} >
                             <div className="card">
                                 <div className="card-body d-flex flex-column">
-                                    <img src={`${process.env.REACT_APP_BACKEN_URL}/user.png`} className={styleEditUser.photoUser} />
+                                    {
+                                        dataUser.photo ? (
+                                            <img src={`http://localhost:5002/${dataUser.photo}`} className={styleEditUser.photoUser} />
+                                        ) :
+                                            (
+                                                <img src={`${process.env.REACT_APP_BACKEN_URL}/user.png`} className={styleEditUser.photoUser} />
+                                            )
+                                    }
+
                                     <div className={styleEditUser.lineSpacing} ></div>
                                     <div className='d-flex justify-content-center align-items-center w-100' >
                                         <img src='/button-edit.svg' />
-                                        <label htmlFor="files" className={styleEditUser.userPosition} >Edit</label>
+                                        <label htmlFor="files" className={styleEditUser.userPosition} >Edit photo</label>
                                         <input className="hidden" hidden type="file" id="files" onChange={(e) => {
                                             setPhoto(e.target.files[0])
                                             setIsChangePhoto(true)
@@ -232,11 +246,13 @@ const EditUser = (props) => {
                                     <p className={styleEditUser.typeWork} >Freelancer</p>
                                 </div>
                             </div>
+                            <button onClick={(e) => onUpdateUser(e)} type='submit' className={styleEditUser.buttonSave} >Simpan</button>
+                            <button className={styleEditUser.buttonCancel} >Batal</button>
                         </div>
                         <div className={styleEditUser.spasi} ></div>
                         <div className={`col-lg-8 col-12`} >
                             {/* card edit profile */}
-                            <form onSubmit={(e) => onUpdateUser(e)} >
+                            <form >
                                 <div className={`card ${styleEditUser.marginCard}`}>
 
                                     <div className="card-body d-flex flex-column">
@@ -266,7 +282,11 @@ const EditUser = (props) => {
                                     <div className="card-body d-flex flex-column">
                                         <label className={styleEditUser.labelProfile} >Skill</label>
                                         <div className={styleEditUser.marginSkill}></div>
-                                        <Multiselect
+                                        {
+                                            <input onChange={(e) => setSkillName(e.target.value)} defaultValue={dataUser.skill_name} className={styleEditUser.input} type='input' />
+                                        }
+
+                                        {/* <Multiselect
                                             isObject={false}
                                             onKeyPressFn={function noRefCheck() { }}
                                             onRemove={function noRefCheck() { }}
@@ -284,11 +304,12 @@ const EditUser = (props) => {
                                                 'Laravel',
                                                 'PHP'
                                             ]}
-                                        />
+                                            onChange={(e) => setSkillName(e.target.selectedOptions)}
+                                        /> */}
+
                                     </div>
                                 </div>
-                                <button type='submit' className={styleEditUser.buttonSave} >Simpan</button>
-                                <button className={styleEditUser.buttonCancel} >Batal</button>
+
                             </form>
                             {/* card add pengalaman */}
                             <div className={`card ${styleEditUser.marginCard}`}>
@@ -305,7 +326,7 @@ const EditUser = (props) => {
                                             <div className={styleEditUser.spasi} ></div>
                                             <div className='d-flex flex-column w-100'>
                                                 <label className={styleEditUser.labelInput} >Bulan/tahun</label>
-                                                <input onChange={(e) => setDateJob(e.target.value)} className={styleEditUser.input} type='input' />
+                                                <input onChange={(e) => setDateJob(e.target.value)} className={styleEditUser.input} type='date' />
                                             </div>
                                         </div>
                                         <label className={styleEditUser.labelInput} >Deskripsi singkat</label>

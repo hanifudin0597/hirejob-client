@@ -5,6 +5,7 @@ import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Link from 'next/link'
+import Cookie from 'js-cookie'
 
 export async function getServerSideProps(context) {
     const { token } = context.req.cookies
@@ -20,6 +21,8 @@ const DetailUser = (props) => {
     const router = useRouter()
     const { id } = router.query
     const token = props.token
+    const idUser = Cookie.get('idUser')
+    // console.log(idUser)
 
     // state for data detailUser
     const [dataUser, setDataUser] = useState('')
@@ -42,9 +45,11 @@ const DetailUser = (props) => {
     }, [])
 
     const onLogout = () => {
-        document.cookie = "token=;"
-        router.push('./login')
+        Cookie.remove('token', { path: '/' })
+        Cookie.remove('idUser', { path: '/' })
+        router.push('/login')
     }
+
 
     return (
         <>
@@ -61,9 +66,21 @@ const DetailUser = (props) => {
                                             < img className={styleDetailUser.photoUser} src={`http://localhost:5002/user.png`} alt='img user' />
                                         )
                                     }
-                                    <Link href={`/edituser/${id}`} >
-                                        <label className={styleDetailUser.editProfile} > Edit Profile</label>
-                                    </Link>
+                                    {
+                                        idUser ? (
+                                            dataUser.id == idUser ? (
+                                                <Link href={`/edituser/${id}`} >
+                                                    <label className={styleDetailUser.editProfile} > Edit Profile</label>
+                                                </Link>
+                                            ) :
+                                                (
+                                                    <div></div>
+                                                )
+                                        ) : (
+                                            <div></div>
+                                        )
+                                    }
+
                                     <label className={styleDetailUser.userName} >{dataUser.name}</label>
                                     <p className={styleDetailUser.userPosition} >{dataUser.job_description}</p>
                                     <div className={`d-flex ${styleDetailUser.location}`} >
@@ -85,7 +102,20 @@ const DetailUser = (props) => {
                                             )
                                         }
                                     </div>
-                                    <button onClick={() => onLogout()} className={styleDetailUser.buttonLogout} >logout</button>
+                                    {
+                                        idUser ? (
+                                            dataUser.id == idUser ? (
+                                                <button onClick={() => onLogout()} className={styleDetailUser.buttonLogout} >logout</button>
+                                            ) :
+                                                (
+                                                    <div></div>
+                                                )
+                                        ) : (
+                                            <div></div>
+                                        )
+
+                                    }
+
                                 </div>
                             </div>
                         </div>

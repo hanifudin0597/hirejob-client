@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styleNavbar from '../styles/Navbar.module.css'
 import Link from 'next/link'
-import jwt_decode from 'jwt-decode'
+import Cookie from 'js-cookie'
+import axios from 'axios'
 
-export async function getServerSideProps(context) {
-    const { token } = context.req.cookies
-    const decoded = jwt_decode(token);
-    return {
-        props: {
-            token,
-            decoded
-        },
-    }
-}
+export default function navbar() {
+    const idUser = Cookie.get('idUser')
+    const token = Cookie.get('token')
+    const [dataUser, setDataUser] = useState('')
 
-export default function navbar(props) {
-    // const token = props.token
+    useEffect(() => {
+        axios.get(`http://localhost:5002/user/${idUser}`, {
+            'Access-Control-Allow-Origin': true,
+            headers: { token }
+        })
+            .then((result) => {
+                setDataUser(result.data.data.user)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
+
+    // console.log(dataUser)
+
+
+    // console.log(idUser)
 
 
     // console.log(props.decoded, props.token)
@@ -53,12 +63,20 @@ export default function navbar(props) {
     //     }
     // }
 
+    const onHome = () => {
+        window.location.href = `/listuser`
+    }
+
+    const onMyprofile = () => {
+        window.location.href = `/detailuser/${idUser}`
+    }
+
     return (
         <nav className={`navbar navbar-expand-lg bg-light ${styleNavbar.navbar} `} >
             <div className="container-fluid">
-                <Link href={`/listuser`} >
-                    <img src='/logo2.svg' />
-                </Link>
+                {/* <Link href='' > */}
+                < img src='/logo2.svg' onClick={onHome} />
+                {/* </Link> */}
 
                 <div className={` d-flex ${styleNavbar.navContent}`}>
                     <div>
@@ -68,7 +86,20 @@ export default function navbar(props) {
                         <img className={styleNavbar.iconNavbar} src='/icon-notification.svg' />
                     </div>
                     <div>
-                        <img className={styleNavbar.iconUser} src='/user.jpg' alt='user' />
+                        <Link href=''>
+                            {/* <h5>My Profile</h5> */}
+                            <button onClick={onMyprofile} className={styleNavbar.buttonMyProfile} >My Profile</button>
+                        </Link>
+                    </div>
+                    <div>
+                        {
+                            dataUser.photo ? (
+                                <img className={styleNavbar.iconUser} src={`http://localhost:5002/${dataUser.photo}`} alt='user' />
+                            ) : (
+                                <img className={styleNavbar.iconUser} src={`http://localhost:5002/user.png`} />
+                            )
+                        }
+
                     </div>
                     {/* {isLoggin()} */}
                 </div>

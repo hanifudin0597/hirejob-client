@@ -125,6 +125,7 @@
     border-radius: 5px;
     border: 1px solid #9EA0A5;
     margin-bottom: 20px;
+    padding-left: 10px;
 }
 
 .inputTextArea {
@@ -132,6 +133,7 @@
     border-radius: 5px;
     border: 1px solid #9EA0A5;
     margin-bottom: 20px;
+    padding-left: 10px;
 }
 
 .buttonExp {

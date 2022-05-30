@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Footer from '../../components/footer'
-import styleListUser from '../../styles/Listuser.module.css'
+import Navbar from '../../../components/navbarRecruiter'
+import Footer from '../../../components/footer'
+import styleListUser from '../../../styles/Listuser.module.css'
 import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -44,6 +45,7 @@ const ListUser = (props) => {
     }
     return (
         <>
+            <Navbar />
             <section className={styleListUser.bodyContent} >
                 <div className={styleListUser.header}>
                     <label className={styleListUser.labelHeader} >Top Jobs</label>
@@ -86,8 +88,6 @@ const ListUser = (props) => {
                                             ) : (
                                                 <div></div>
                                             )
-
-
                                         }
                                     </div>
                                 </div>
@@ -111,6 +111,6 @@ const ListUser = (props) => {
 }
 
 // ListUser.layout = 'Layoutnavbar'
-ListUser.layout = 'Layoutnavbar'
+// ListUser.layout = 'Layoutnavbar'
 
 export default ListUser;

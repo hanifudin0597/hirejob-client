@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Decorauth from '../../components/decorationAuth'
-import styleAuth from '../../styles/decorationAuth.module.css'
+import Decorauth from '../../../components/decorationAuth'
+import styleAuth from '../../../styles/decorationAuth.module.css'
 import Link from "next/link"
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/router'
@@ -28,11 +28,11 @@ export default function login() {
                 email: form.email,
                 password: form.password,
             }
-            axios.post(`http://localhost:5002/login/`, body)
+            axios.post(`http://localhost:5002/login/company`, body)
                 .then((response) => {
                     Cookie.set('token', `${response.data.token.jwt}`, { path: '/' })
-                    Cookie.set('idUser', `${response.data.token.idJobseeker}`, { path: '/' })
-                    window.location.href = `/listuser`
+                    Cookie.set('idUser', `${response.data.token.idRecruiter}`, { path: '/' })
+                    window.location.href = `/recruiter/listuser`
                     Swal.fire({
                         icon: 'success',
                         title: 'Success',
@@ -48,7 +48,6 @@ export default function login() {
                 })
         }
     }
-
     return (
         <>
             <div className='row g-0' >
@@ -67,7 +66,7 @@ export default function login() {
                                 <a className={styleAuth.inputAhref} href="">Forgot Password ?</a>
                                 <div className={styleAuth.formNoAccount}>
                                     <label className={styleAuth.inputLabel}>Don't have an account? </label>
-                                    <Link href="/register" className={styleAuth.inputAhrefLink}>
+                                    <Link href="/recruiter/register" className={styleAuth.inputAhrefLink}>
                                         Daftar disini
                                     </Link>
                                 </div>
