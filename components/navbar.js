@@ -1,109 +1,116 @@
-import React, { useEffect, useState } from 'react'
-import styleNavbar from '../styles/Navbar.module.css'
-import Link from 'next/link'
-import Cookie from 'js-cookie'
-import axios from 'axios'
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/alt-text */
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Cookie from 'js-cookie';
+import axios from 'axios';
+import jwtDecode from 'jwt-decode';
+import styleNavbar from '../styles/Navbar.module.css';
 
 export default function navbar() {
-    const idUser = Cookie.get('idUser')
-    const token = Cookie.get('token')
-    const [dataUser, setDataUser] = useState('')
+  const idUser = Cookie.get('idUser');
+  const token = Cookie.get('token');
+  const [dataUser, setDataUser] = useState('');
+  const [dataCompany, setDataCompany] = useState('');
 
-    useEffect(() => {
-        axios.get(`http://localhost:5002/user/${idUser}`, {
-            'Access-Control-Allow-Origin': true,
-            headers: { token }
-        })
-            .then((result) => {
-                setDataUser(result.data.data.user)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [])
+  let decoded = '';
+  if (token) {
+    decoded = jwtDecode(token);
+  }
 
-    // console.log(dataUser)
+  useEffect(() => {
+    axios.get(`http://localhost:5002/user/${idUser}`, {
+      'Access-Control-Allow-Origin': true,
+      headers: { token }
+    })
+      .then((result) => {
+        setDataUser(result.data.data.user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
+  useEffect(() => {
+    axios.get(`http://localhost:5002/company/${idUser}`, {
+      'Access-Control-Allow-Origin': true,
+      headers: { token }
+    })
+      .then((result) => {
+        // console.log(result.data.data)
+        setDataCompany(result.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-    // console.log(idUser)
+  const onHomeWorker = () => {
+    window.location.href = '/listuser';
+  };
 
+  const onMyprofileWorker = () => {
+    window.location.href = `/detailuser/${idUser}`;
+  };
 
-    // console.log(props.decoded, props.token)
+  const onHomeRecruiter = () => {
+    window.location.href = '/recruiter/listuser';
+  };
 
-    // const isLoggin = () => {
-    //     if (token) {
-    //         return (
-    //             <div className={styleNavbar.navContent}>
-    //                 <div>
-    //                     <img className={styleNavbar.iconNavbar} src='/icon-message.svg' />
-    //                 </div>
-    //                 <div>
-    //                     <img className={styleNavbar.iconNavbar} src='/icon-notification.svg' />
-    //                 </div>
-    //                 <div>
-    //                     <img src='/icon-notification.svg' alt='user' />
-    //                 </div>
+  const onMyprofileRecruiter = () => {
+    window.location.href = `/recruiter/companyprofile/${idUser}`;
+  };
 
-    //             </div>
-    //         )
-    //     }
-    //     else {
-    //         return (
-    //             <div className={styleNavbar.navContent}>
-    //                 <form className="d-flex" role="search">
-    //                     <Link href='/login' >
-    //                         <button className={`${styleNavbar.buttonLogin}`} type="submit">Masuk</button>
-    //                     </Link>
-    //                     <Link href='/register'>
-    //                         <button className={`${styleNavbar.buttonDaftar}`} type="submit">Daftar</button>
-    //                     </Link>
-    //                 </form>
-    //             </div>
-    //         )
-    //     }
-    // }
+  const onMessage = () => {
+    window.location.href = '/message';
+  };
 
-    const onHome = () => {
-        window.location.href = `/listuser`
-    }
+  return (
+    <nav className={`navbar navbar-expand-lg bg-light ${styleNavbar.navbar} `}>
+      <div className="container-fluid">
+        {decoded.level === '1' ? (
+          <img src="/logo2.svg" onClick={onHomeWorker} />
+        ) : (
+          <img src="/logo2.svg" onClick={onHomeRecruiter} />
+        )}
+        <div className={` d-flex ${styleNavbar.navContent}`}>
+          <div>
+            <img onClick={onMessage} className={styleNavbar.iconNavbar} src="/icon-message.svg" />
+          </div>
+          <div>
+            <img className={styleNavbar.iconNavbar} src="/icon-notification.svg" />
+          </div>
+          <div>
+            {decoded.level === '1' ? (
+              <Link href="">
+                <button onClick={onMyprofileWorker} className={styleNavbar.buttonMyProfile}>My Profile</button>
+              </Link>
+            ) : (
+              <Link href="">
+                <button onClick={onMyprofileRecruiter} className={styleNavbar.buttonMyProfile}>My Profile</button>
+              </Link>
+            )}
 
-    const onMyprofile = () => {
-        window.location.href = `/detailuser/${idUser}`
-    }
-
-    return (
-        <nav className={`navbar navbar-expand-lg bg-light ${styleNavbar.navbar} `} >
-            <div className="container-fluid">
-                {/* <Link href='' > */}
-                < img src='/logo2.svg' onClick={onHome} />
-                {/* </Link> */}
-
-                <div className={` d-flex ${styleNavbar.navContent}`}>
-                    <div>
-                        <img className={styleNavbar.iconNavbar} src='/icon-message.svg' />
-                    </div>
-                    <div>
-                        <img className={styleNavbar.iconNavbar} src='/icon-notification.svg' />
-                    </div>
-                    <div>
-                        <Link href=''>
-                            {/* <h5>My Profile</h5> */}
-                            <button onClick={onMyprofile} className={styleNavbar.buttonMyProfile} >My Profile</button>
-                        </Link>
-                    </div>
-                    <div>
-                        {
-                            dataUser.photo ? (
-                                <img className={styleNavbar.iconUser} src={`http://localhost:5002/${dataUser.photo}`} alt='user' />
-                            ) : (
-                                <img className={styleNavbar.iconUser} src={`http://localhost:5002/user.png`} />
-                            )
-                        }
-
-                    </div>
-                    {/* {isLoggin()} */}
-                </div>
-            </div>
-        </nav >
-    )
+          </div>
+          <div>
+            {decoded.level === '1' ? (
+              dataUser.photo ? (
+                <img className={styleNavbar.iconUser} src={`http://localhost:5002/${dataUser.photo}`} alt="user" />
+              ) : (
+                <img className={styleNavbar.iconUser} src="http://localhost:5002/user.png" />
+              )
+            ) : (
+              dataCompany.photo ? (
+                <img className={styleNavbar.iconUser} src={`http://localhost:5002/${dataCompany.photo}`} alt="user" />
+              ) : (
+                <img className={styleNavbar.iconUser} src="http://localhost:5002/company.png" />
+              )
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 }

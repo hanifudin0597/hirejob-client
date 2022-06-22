@@ -1,14 +1,14 @@
-import '../styles/globals.css'
-import "bootstrap/dist/css/bootstrap.css"
-import Navbar from '../layouts/navbarLayout'
+import '../styles/globals.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Navbar from '../layouts/navbarLayout';
 
 const layouts = {
   Layoutnavbar: Navbar,
 };
 
 const NoLayout = ({ children }) => {
-  return <>{children}</>
-}
+  return <>{children}</>;
+};
 
 function MyApp({ Component, pageProps }) {
   const Layout = layouts[Component.layout] || NoLayout;
@@ -17,8 +17,7 @@ function MyApp({ Component, pageProps }) {
     <Layout>
       <Component {...pageProps} />
     </Layout>
-  )
-
+  );
 }
 
-export default MyApp
+export default MyApp;

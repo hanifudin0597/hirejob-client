@@ -41,6 +41,15 @@
     background-color: white;
     margin-top: 70px;
     /* width: 50%; */
+    margin-left: 12%
+
+}
+
+.formInputRegisterWorker {
+    background-color: white;
+    margin-top: 70px;
+    /* width: 50%; */
+    /* margin-left: 12% */
 
 }
 
@@ -60,6 +69,7 @@
     /* text-align: left; */
     width: 50%;
     display: flex;
+    margin-right:10%
 }
 
 .inputSmall {
@@ -71,6 +81,7 @@
     font-family: 'Inter', normal;
     color: #8692A6;
     width: 74%;
+    margin-right:10%
 }
 
 .inputLabel {

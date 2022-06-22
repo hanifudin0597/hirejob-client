@@ -1,12 +1,12 @@
-import React from 'react'
-import Navbar from '../components/navbar'
+import React from 'react';
+import Navbar from '../components/navbar';
 
 export default function layout(props) {
-    const { children } = props;
-    return (
-        <>
-            <Navbar />
-            <main>{children}</main>
-        </>
-    )
+  const { children } = props;
+  return (
+    <>
+      <Navbar />
+      <main>{children}</main>
+    </>
+  );
 }

@@ -23,11 +23,11 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    margin-left: 25%;
+    /* margin-left: 25%; */
 }
 
 .editProfile {
-    margin-left: 32%;
+    /* margin-left: 32%; */
     margin-top: 20px;
 }
 
@@ -73,7 +73,7 @@
     width: 200px;
     height: 50px;
     border-radius: 5px;
-    margin-left: 12%;
+    /* margin-left: 12%; */
     background-color: #5E50A1;
     border: none;
     color: white;
@@ -84,7 +84,7 @@
     width: 200px;
     height: 50px;
     border-radius: 5px;
-    margin-left: 12%;
+    /* margin-left: 12%; */
     background-color: red;
     border: none;
     color: white;

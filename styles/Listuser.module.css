@@ -15,7 +15,8 @@
 .bodyContent {
     background-color: #E5E5E5;
     /* padding: 4rem 0; */
-    min-height: 100vh;
+    min-height: 170vh;
+    /* margin-bottom: 20px */
 }
 
 .contentListUser {
