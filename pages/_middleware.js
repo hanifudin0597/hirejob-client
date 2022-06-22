@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { NextResponse } from 'next/server';
 
 export default function middleware(req) {

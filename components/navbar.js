@@ -21,7 +21,7 @@ export default function navbar() {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/user/${idUser}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${idUser}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
@@ -34,7 +34,7 @@ export default function navbar() {
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/company/${idUser}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })

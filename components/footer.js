@@ -7,7 +7,7 @@ export default function footer() {
       <footer className={`${styleFooter.footer}`}>
         <div className={`d-flex flex-column align-items-center h-100 ${styleFooter.footerMargin}`}>
           <div className="w-100 d-flex flex-column justify-content-left align-items-start">
-            <img src="/logo.svg" />
+            <img src="/logo.svg" alt="logo" />
           </div>
           <div className={`w-100 d-flex ${styleFooter.textFooter}`}>
             <small className={styleFooter.footerH1}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor</small>

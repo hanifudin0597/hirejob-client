@@ -14,7 +14,7 @@ const Message = () => {
   const [message, setMessage] = useState();
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/message/${idUser}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/message/${idUser}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })

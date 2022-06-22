@@ -38,7 +38,7 @@ const DetailUser = (props) => {
   const [dataCompany, setDataCompany] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/user/${id}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
@@ -82,7 +82,7 @@ const DetailUser = (props) => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5002/portofolio/${id}`, {
+        axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/portofolio/${id}`, {
           'Access-Control-Allow-Origin': true,
           headers: { token }
         })
@@ -113,7 +113,7 @@ const DetailUser = (props) => {
       recruiterId: dataCompany.company_name
     };
 
-    axios.post('http://localhost:5002/message', body, {
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/message`, body, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
@@ -145,7 +145,7 @@ const DetailUser = (props) => {
                       dataUser.photo ? (
                         <img className={styleDetailUser.photoUser} src={`http://localhost:5002/${dataUser.photo}`} alt="img user" />
                       ) : (
-                        <img className={styleDetailUser.photoUser} src={`${process.env.REACT_APP_BACKEN_URL}/user.png`} alt="img user" />
+                        <img className={styleDetailUser.photoUser} src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} alt="img user" />
                       )
                   }
                     {

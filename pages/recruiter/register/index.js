@@ -42,8 +42,9 @@ export default function register() {
         phone: form.phone,
         password: form.password,
       };
-      axios.post('http://localhost:5002/register/company', body)
+      axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register/company`, body)
         .then((response) => {
+          console.log(response);
           router.push('/recruiter/login');
           Swal.fire({
             icon: 'success',
@@ -52,6 +53,7 @@ export default function register() {
           });
         })
         .catch((err) => {
+          console.log(err);
           Swal.fire({
             icon: 'error',
             title: 'Failed',
@@ -91,7 +93,7 @@ export default function register() {
                 <button onClick={onRegisterPerekrut} type="button" className={styleAuth.inputButton}>Daftar Pencari kerja</button>
                 {/* <a className={styleAuth.inputAhref} href="">Forgot Password ?</a> */}
                 <div className={styleAuth.formNoAccount}>
-                  <label className={styleAuth.inputLabel}>Don't have an account? </label>
+                  <label className={styleAuth.inputLabel}>Don&apos;t have an account? </label>
                   <div style={{ marginTop: '13px', marginLeft: '5px' }}>
                     <Link href="/recruiter/login" style={{ marginTop: '50px' }} className={styleAuth.inputAhrefLink}>
                       Masuk disini

@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
   try {
     const response = await axios({
       method: 'get',
-      url: `${process.env.REACT_APP_BACKEN_URL}/user?search=${search}`,
+      url: `${process.env.NEXT_PUBLIC_API_URL}/user?search=${search}`,
     });
     return {
       props: {
@@ -72,9 +72,9 @@ const ListUser = (props) => {
                   <div className="col-md-2">
                     {
                         item.photo ? (
-                          <img className={styleListUser.userPhoto} src={`${process.env.REACT_APP_BACKEN_URL}/${item.photo}`} alt="img user" />
+                          <img className={styleListUser.userPhoto} src={`${process.env.NEXT_PUBLIC_API_URL}/${item.photo}`} alt="img user" />
                         ) : (
-                          <img className={styleListUser.userPhoto} src={`${process.env.REACT_APP_BACKEN_URL}/user.png`} alt="img user" />
+                          <img className={styleListUser.userPhoto} src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} alt="img user" />
                         )
                     }
 

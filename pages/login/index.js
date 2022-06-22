@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import axios from 'axios';
 import Cookie from 'js-cookie';
 import styleAuth from '../../styles/decorationAuth.module.css';
 import Decorauth from '../../components/decorationAuth';
 
 export default function login() {
-  const router = useRouter();
+  // const router = useRouter();
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -28,7 +28,7 @@ export default function login() {
         email: form.email,
         password: form.password,
       };
-      axios.post('http://localhost:5002/login/', body)
+      axios.post(`${process.env.NEXT_PUBLIC_API_URL}/login/`, body)
         .then((response) => {
           Cookie.set('token', `${response.data.token.jwt}`, { path: '/' });
           Cookie.set('idUser', `${response.data.token.idJobseeker}`, { path: '/' });
@@ -40,6 +40,7 @@ export default function login() {
           });
         })
         .catch((err) => {
+          console.log(err);
           Swal.fire({
             icon: 'error',
             title: 'Failed',
@@ -70,7 +71,7 @@ export default function login() {
                 <button className={styleAuth.inputButton} onClick={onLoginPerekrut} type="button">Masuk sebagai Perekrut</button>
                 {/* <a className={styleAuth.inputAhref} href="">Forgot Password ?</a> */}
                 <div className={styleAuth.formNoAccount}>
-                  <label className={styleAuth.inputLabel}>Don't have an account? </label>
+                  <label className={styleAuth.inputLabel}>Don&apos;t have an account? </label>
                   <div style={{ marginTop: '13px', marginLeft: '5px' }}>
                     <Link href="/register" style={{ marginTop: '50px' }} className={styleAuth.inputAhrefLink}>
                       Daftar disini

@@ -60,7 +60,7 @@ const EditUser = (props) => {
   const [photoApp, setPhotoApp] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/user/${id}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
@@ -76,7 +76,7 @@ const EditUser = (props) => {
     const formData = new FormData();
     formData.append('photo', photo);
 
-    axios.put(`http://localhost:5002/user/${id}/photo`, formData, {
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}/photo`, formData, {
       'Access-Control-Allow-Origin': true,
       headers: { token },
       'Content-Type': 'multipart/form-data'
@@ -119,7 +119,7 @@ const EditUser = (props) => {
         description,
         skillName: `{${skillName}}`
       };
-      axios.put(`http://localhost:5002/user/${id}`, body, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, body, {
         headers: { token }
       })
         .then((response) => {
@@ -134,7 +134,7 @@ const EditUser = (props) => {
         date: Exp.experience[0].dateJob,
         description: Exp.experience[0].jobDesc,
       };
-      axios.post('http://localhost:5002/experience', Experience, {
+      axios.post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, Experience, {
         headers: { token }
       })
         .then((responseExp) => {
@@ -149,7 +149,7 @@ const EditUser = (props) => {
       formData.append('repository', form.portofolio[0].linkRepo);
       formData.append('type', form.portofolio[0].typeApp);
       formData.append('photo', photoApp);
-      axios.post('http://localhost:5002/portofolio', formData, {
+      axios.post(`${process.env.NEXT_PUBLIC_API_URL}/portofolio`, formData, {
         'Access-Control-Allow-Origin': true,
         headers: { token },
         'Content-Type': 'multipart/form-data'
@@ -264,10 +264,10 @@ const EditUser = (props) => {
                 <div className="card-body d-flex flex-column">
                   {
                       dataUser.photo ? (
-                        <img src={`http://localhost:5002/${dataUser.photo}`} className={styleEditUser.photoUser} />
+                        <img src={`${process.env.NEXT_PUBLIC_API_URL}/${dataUser.photo}`} className={styleEditUser.photoUser} />
                       ) :
                         (
-                          <img src={`${process.env.REACT_APP_BACKEN_URL}/user.png`} className={styleEditUser.photoUser} />
+                          <img src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} className={styleEditUser.photoUser} />
                         )
                   }
                   <div className={styleEditUser.lineSpacing} />

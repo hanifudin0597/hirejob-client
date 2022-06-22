@@ -6,7 +6,7 @@ import Cookie from 'js-cookie';
 import styleEditUser from '../../../styles/Edituser.module.css';
 import Footer from '../../../components/footer';
 
-const EditCompany = (props) => {
+const EditCompany = () => {
   const idUser = Cookie.get('idUser');
   const token = Cookie.get('token');
   const [photo, setPhoto] = useState('');
@@ -35,7 +35,7 @@ const EditCompany = (props) => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/company/${idUser}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
@@ -51,12 +51,12 @@ const EditCompany = (props) => {
   const onUpdateCompany = (e) => {
     e.preventDefault();
 
-    axios.put(`http://localhost:5002/company/${idUser}`, body, {
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, body, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
       .then((result) => {
-        // console.log(result)
+        console.log(result);
         Swal.fire({
           icon: 'success',
           title: 'Success',
@@ -73,12 +73,13 @@ const EditCompany = (props) => {
     const formData = new FormData();
     formData.append('photo', photo);
 
-    axios.put(`http://localhost:5002/company/${idUser}/photo`, formData, {
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}/photo`, formData, {
       'Access-Control-Allow-Origin': true,
       headers: { token },
       'Content-Type': 'multipart/form-data'
     })
       .then((result) => {
+        console.log(result);
         Swal.fire({
           icon: 'success',
           title: 'Success',
@@ -106,10 +107,10 @@ const EditCompany = (props) => {
                 <div className="card-body d-flex flex-column">
                   {
                       dataCompany.photo ? (
-                        <img src={`http://localhost:5002/${dataCompany.photo}`} className={styleEditUser.photoUser} />
+                        <img src={`${process.env.NEXT_PUBLIC_API_URL}/${dataCompany.photo}`} className={styleEditUser.photoUser} />
                       ) :
                         (
-                          <img src={`${process.env.REACT_APP_BACKEN_URL}/user.png`} className={styleEditUser.photoUser} />
+                          <img src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} className={styleEditUser.photoUser} />
                         )
                   }
 

@@ -7,13 +7,13 @@ import Cookie from 'js-cookie';
 import styleEditCompany from '../../../styles/Editcompany.module.css';
 import Footer from '../../../components/footer';
 
-const EditCompany = (props) => {
+const EditCompany = () => {
   const idUser = Cookie.get('idUser');
   const token = Cookie.get('token');
   const [dataCompany, setDataCompany] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/company/${idUser}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
