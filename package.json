@@ -5,9 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "lint-fix": "eslint . --fix"
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^0.27.2",
