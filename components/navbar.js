@@ -97,15 +97,15 @@ export default function navbar() {
           <div>
             {decoded.level === '1' ? (
               dataUser.photo ? (
-                <img className={styleNavbar.iconUser} src={`http://localhost:5002/${dataUser.photo}`} alt="user" />
+                <img className={styleNavbar.iconUser} src={`${process.env.NEXT_PUBLIC_API_URL}/${dataUser.photo}`} alt="user" />
               ) : (
-                <img className={styleNavbar.iconUser} src="http://localhost:5002/user.png" />
+                <img className={styleNavbar.iconUser} src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} />
               )
             ) : (
               dataCompany.photo ? (
-                <img className={styleNavbar.iconUser} src={`http://localhost:5002/${dataCompany.photo}`} alt="user" />
+                <img className={styleNavbar.iconUser} src={`${process.env.NEXT_PUBLIC_API_URL}/${dataCompany.photo}`} alt="user" />
               ) : (
-                <img className={styleNavbar.iconUser} src="http://localhost:5002/company.png" />
+                <img className={styleNavbar.iconUser} src={`${process.env.NEXT_PUBLIC_API_URL}/company.png`} />
               )
             )}
           </div>

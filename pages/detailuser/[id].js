@@ -59,7 +59,7 @@ const DetailUser = (props) => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5002/company/${idUser}`, {
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
       headers: { token }
     })
@@ -143,7 +143,7 @@ const DetailUser = (props) => {
                   <div className="justify-content-center align-items-center d-flex flex-column">
                     {
                       dataUser.photo ? (
-                        <img className={styleDetailUser.photoUser} src={`http://localhost:5002/${dataUser.photo}`} alt="img user" />
+                        <img className={styleDetailUser.photoUser} src={`${process.env.NEXT_PUBLIC_API_URL}/${dataUser.photo}`} alt="img user" />
                       ) : (
                         <img className={styleDetailUser.photoUser} src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} alt="img user" />
                       )
@@ -156,10 +156,10 @@ const DetailUser = (props) => {
                           </Link>
                         ) :
                           (
-                            <div>.</div>
+                            <div><></></div>
                           )
                       ) : (
-                        <div>.</div>
+                        <div><></></div>
                       )
                   }
                   </div>
@@ -210,8 +210,8 @@ const DetailUser = (props) => {
               </div>
             </div>
             <div className={styleDetailUser.spasi} />
-            <div className="col-lg-8 col-12">
-              <div className="card">
+            <div className={`col-lg-8 col-12 ${styleDetailUser.responsiveDetailPorto}`}>
+              <div className="card w-100">
                 <div className={`card-body ${styleDetailUser.widthCardBody}`}>
                   <Nav tabs className={`d-flex justify-content-left ${styleDetailUser.nabTab}`}>
                     <NavItem>
@@ -234,7 +234,7 @@ const DetailUser = (props) => {
                             (
                               dataPortofolio.map((items, index) => (
                                 <div key={index} style={{ position: 'relative' }} className={`d-flex flex-column align-items-center ${styleDetailUser.detailPortofolio}`}>
-                                  <img src={`http://localhost:5002/${items.photo}`} className={styleDetailUser.photoPortofolio} />
+                                  <img src={`${process.env.NEXT_PUBLIC_API_URL}/${items.photo}`} className={styleDetailUser.photoPortofolio} />
                                   <label>{items.name}</label>
                                   {idUser === id ? (
                                     <button onClick={() => onDeletePorto(items.id)} style={{ border: 'none', position: 'absolute', right: '-20px', top: '-10px', borderRadius: '100%', backgroundColor: 'red', color: 'white', paddingLeft: '8px', paddingRight: '8px' }}>X</button>

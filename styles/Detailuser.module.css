@@ -1,3 +1,14 @@
+@media screen and (max-width: 700px) {
+  .CardContent{
+    margin-left:70px !important;
+    /* margin-bottom:20px */
+  }
+  .responsiveDetailPorto{
+    margin-top:550px !important;
+    margin-left:-250px !important
+  }
+}
+
 .header {
     background-color: #5E50A1;
     height: 35vh;

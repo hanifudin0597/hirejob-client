@@ -1,3 +1,34 @@
+@media screen and (max-width: 700px) {
+    .decoration {
+        display: none;
+    }
+    .formInput{
+        margin:0px
+    }
+    .formGroup{
+        margin-left:0px
+    }
+    .formGroup form{
+        width:100%;
+        margin-left:0px
+    }
+    .formInputType{
+        width:300px !important
+    }
+    .inputButton{
+         width:300px !important
+    }
+    .inputH1{
+        width:80% !important
+    }
+    .formInputRegisterWorker form{
+        margin-left: 24% !important
+    }
+    .formInputRegisterWorker small{
+        margin-right: 24% !important
+    }
+}
+
 /* LogoLogin */
 .decoration {
     height: 100vh;

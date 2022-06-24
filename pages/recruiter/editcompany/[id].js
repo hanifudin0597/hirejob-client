@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import Cookie from 'js-cookie';
-import styleEditUser from '../../../styles/Edituser.module.css';
+import styleEditUser from '../../../styles/Editcompany.module.css';
 import Footer from '../../../components/footer';
 
 const EditCompany = () => {
@@ -142,7 +142,7 @@ const EditCompany = () => {
               <button className={styleEditUser.buttonCancel}>Batal</button>
             </div>
             <div className={styleEditUser.spasi} />
-            <div className="col-lg-8 col-12">
+            <div className={`col-lg-8 col-12 ${styleEditUser.responsiveEditForm}`}>
               {/* card edit profile */}
               <form>
                 <div className={`card ${styleEditUser.marginCard}`}>

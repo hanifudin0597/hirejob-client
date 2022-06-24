@@ -1,7 +1,38 @@
+@media screen and (max-width: 700px) {
+  .contentListUser {
+        margin-top: 20px;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+        margin-bottom: 20px;
+    }
+    .cardListUser {
+        width: 85%;
+        margin-left: 35px !important;
+        /* margin-right: 5px !important; */
+    }
+    .centerSM{
+        margin-left:30%
+    }
+    .userName {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 5px;
+        /* margin-left:-12px */
+        width:50%
+    }
+    .centerDetailProfile{
+        margin-top:-120px;
+        margin-left:30%
+    }
+    .paginationBottom{
+        margin-left: 20% !important;
+        margin-top:10px !important
+    }
+}
+
 .header {
     background-color: #5E50A1;
     height: 10vh;
-
 }
 
 .labelHeader {
@@ -26,11 +57,19 @@
 }
 
 .inputSearch {
-    width: 83%;
+    width: 77%;
     height: 50px;
     border-radius: 5px;
     border: none;
     padding-left: 15px;
+}
+
+.inputSort {
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    margin-right:5px;
+    margin-left:-5px
 }
 
 .buttonSearch {

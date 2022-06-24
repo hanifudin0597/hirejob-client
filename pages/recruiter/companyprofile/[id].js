@@ -43,9 +43,9 @@ const EditCompany = () => {
         <div className={styleEditCompany.companyProfile}>
           {
               dataCompany.photo ? (
-                <img className={`${styleEditCompany.photoUser}`} src={`http://localhost:5002/${dataCompany.photo}`} />
+                <img className={`${styleEditCompany.photoUser}`} src={`${process.env.NEXT_PUBLIC_API_URL}/${dataCompany.photo}`} />
               ) : (
-                <img className={`${styleEditCompany.photoUser}`} src="http://localhost:5002/company.png" width={200} height={200} />
+                <img className={`${styleEditCompany.photoUser}`} src={`${process.env.NEXT_PUBLIC_API_URL}/company.png`} width={200} height={200} />
               )
           }
 

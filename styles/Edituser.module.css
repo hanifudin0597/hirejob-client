@@ -1,3 +1,22 @@
+@media screen and (max-width: 700px) {
+    .CardContent{
+        margin-left:0px !important
+    }
+    .cardSave{
+        margin-left:50px !important
+    }
+    .responsiveEditForm{
+        margin-top:550px !important;
+        margin-left:-330px !important
+    }
+    .inputDate{
+        margin-right:5px !important
+    }
+    .inputTwoField{
+        width:48% !important
+    }
+}
+
 .header {
     background-color: #5E50A1;
     height: 35vh;
@@ -121,6 +140,14 @@
 }
 
 .input {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #9EA0A5;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.inputDate{
     height: 40px;
     border-radius: 5px;
     border: 1px solid #9EA0A5;

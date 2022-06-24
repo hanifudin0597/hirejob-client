@@ -162,8 +162,8 @@ const EditUser = (props) => {
         });
 
       Swal.fire(
-        'Good job!',
-        'You clicked the button!',
+        'Success!',
+        'Update profile success!',
         'success'
       );
       router.push(`/detailuser/${id}`);
@@ -259,7 +259,7 @@ const EditUser = (props) => {
       <section className={styleEditUser.bodyContent}>
         <div className={`d-flex ${styleEditUser.header}`}>
           <div className={`d-flex ${styleEditUser.CardContent} w-100`}>
-            <div className="col-lg-4 col-12 ">
+            <div className={`col-lg-4 col-12 ${styleEditUser.cardSave}`}>
               <div className="card">
                 <div className="card-body d-flex flex-column">
                   {
@@ -299,7 +299,7 @@ const EditUser = (props) => {
               <button onClick={onDetailProfile} className={styleEditUser.buttonCancel} type="button">Batal</button>
             </div>
             <div className={styleEditUser.spasi} />
-            <div className="col-lg-8 col-12">
+            <div className={`col-lg-8 col-12 ${styleEditUser.responsiveEditForm}`}>
               {/* card edit profile */}
               <form>
                 <div className={`card ${styleEditUser.marginCard}`}>
@@ -348,7 +348,7 @@ const EditUser = (props) => {
                         type="input"
                       />
                       <div className="d-flex w-100">
-                        <div className="d-flex flex-column w-100">
+                        <div className={`d-flex flex-column w-100 ${styleEditUser.inputTwoField}`}>
                           <label className={styleEditUser.labelInput}>Nama Perusahaan</label>
                           <input
                             onChange={(e) => handleInputExp(e, index)}
@@ -359,13 +359,13 @@ const EditUser = (props) => {
                           />
                         </div>
                         <div className={styleEditUser.spasi} />
-                        <div className="d-flex flex-column w-100">
+                        <div className={`d-flex flex-column w-100 ${styleEditUser.inputTwoField}`}>
                           <label className={styleEditUser.labelInput}>Bulan/tahun</label>
                           <input
                             onChange={(e) => handleInputExp(e, index)}
                             id="dateJob"
                             value={item.dateJob}
-                            className={styleEditUser.input}
+                            className={styleEditUser.inputDate}
                             type="date"
                           />
                         </div>
