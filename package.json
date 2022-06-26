@@ -16,6 +16,7 @@
     "jwt-decode": "^3.1.2",
     "multiselect-react-dropdown": "^2.0.22",
     "next": "12.1.6",
+    "popper.js": "^1.16.1",
     "react": "18.1.0",
     "react-content-loader": "^6.2.0",
     "react-dom": "18.1.0",
