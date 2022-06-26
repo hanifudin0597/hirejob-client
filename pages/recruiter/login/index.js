@@ -37,12 +37,13 @@ export default function login() {
           });
         })
         .catch((err) => {
-          console.log(err);
-          Swal.fire({
-            icon: 'error',
-            title: 'Failed',
-            text: 'Gagal masuk',
-          });
+          if (err.response.data.code === 401) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Failed',
+              text: `${err.response.data.error}`,
+            });
+          }
         });
     }
   };

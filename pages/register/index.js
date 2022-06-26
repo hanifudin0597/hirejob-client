@@ -40,21 +40,23 @@ export default function register() {
       };
       axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register/`, body)
         .then((response) => {
-          console.log(response);
-          router.push('/login');
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: 'Berhasil register',
-          });
+          if (response.data.code === 201) {
+            router.push('/recruiter/login');
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: `${response.data.message}`,
+            });
+          }
         })
         .catch((err) => {
-          console.log(err);
-          Swal.fire({
-            icon: 'error',
-            title: 'Failed',
-            text: 'Gagal register',
-          });
+          if (err.response.data.code === 500) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Failed',
+              text: `${err.response.data.error}`,
+            });
+          }
         });
     }
   };

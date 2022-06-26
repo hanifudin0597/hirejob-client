@@ -21,8 +21,7 @@ const EditCompany = () => {
         // console.log(result.data.data)
         setDataCompany(result.data.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
       });
   }, []);
 
@@ -37,7 +36,6 @@ const EditCompany = () => {
   };
   return (
     <>
-      {/* <Navbar /> */}
       <section className={styleEditCompany.bodyContent}>
         <div className={`d-flex ${styleEditCompany.header}`} />
         <div className={styleEditCompany.companyProfile}>

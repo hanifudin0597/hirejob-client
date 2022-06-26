@@ -28,8 +28,8 @@ export default function navbar() {
       .then((result) => {
         setDataUser(result.data.data.user);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+
       });
   }, []);
 
@@ -42,8 +42,8 @@ export default function navbar() {
         // console.log(result.data.data)
         setDataCompany(result.data.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+
       });
   }, []);
 

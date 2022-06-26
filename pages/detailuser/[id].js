@@ -137,7 +137,7 @@ const DetailUser = (props) => {
       <section className={styleDetailUser.bodyContent}>
         <div className={`d-flex ${styleDetailUser.header}`}>
           <div className={`d-flex ${styleDetailUser.CardContent} w-100`}>
-            <div className="col-lg-4 col-12 ">
+            <div className={`col-lg-4 col-12 ${styleDetailUser.cardDetailUser}`}>
               <div className="card">
                 <div className="card-body d-flex flex-column">
                   <div className="justify-content-center align-items-center d-flex flex-column">

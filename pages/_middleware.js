@@ -6,7 +6,7 @@ export default function middleware(req) {
   const { pathname, origin } = req.nextUrl;
   // console.log()
 
-  if (!token && pathname !== '/login' && pathname !== '/register' && pathname !== '/recruiter/login' && pathname !== '/recruiter/register') {
+  if (!token && pathname !== '/login' && pathname !== '/register' && pathname !== '/recruiter/login' && pathname !== '/recruiter/register' && pathname !== '/') {
     return NextResponse.redirect(`${origin}/login`);
   }
 }

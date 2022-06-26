@@ -43,8 +43,7 @@ const EditCompany = () => {
         // console.log(result)
         setDataCompany(result.data.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
       });
   }, []);
 
@@ -56,16 +55,22 @@ const EditCompany = () => {
       headers: { token }
     })
       .then((result) => {
-        console.log(result);
+        if (result.data.code === 200) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: `${result.data.message}`,
+          });
+          window.location.reload();
+        }
+      })
+      .catch((err) => {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Berhasil update company profile',
+          text: `${err.response.data.error}`,
         });
         window.location.reload();
-      })
-      .catch((err) => {
-        console.log(err);
       });
   };
 
@@ -79,22 +84,28 @@ const EditCompany = () => {
       'Content-Type': 'multipart/form-data'
     })
       .then((result) => {
-        console.log(result);
-        Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: 'Update Photo successfully',
-        });
-        window.location.reload();
+        if (result.data.code === 200) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: `${result.data.message}`,
+          });
+          window.location.reload();
+        }
       })
       .catch((err) => {
-        console.log(err);
-        Swal.fire({
-          icon: 'error',
-          title: 'Failed',
-          text: 'Update Photo failed',
-        });
+        if (err.response.data.code === 400) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Failed',
+            text: `${err.response.data.message}`,
+          });
+        }
       });
+  };
+
+  const onProfileCompany = () => {
+    window.location.href = `/recruiter/companyprofile/${idUser}`;
   };
   return (
     <>
@@ -105,7 +116,8 @@ const EditCompany = () => {
             <div className="col-lg-4 col-12 ">
               <div className="card">
                 <div className="card-body d-flex flex-column">
-                  {
+                  <div style={{ marginLeft: '32%' }}>
+                    {
                       dataCompany.photo ? (
                         <img src={`${process.env.NEXT_PUBLIC_API_URL}/${dataCompany.photo}`} className={styleEditUser.photoUser} />
                       ) :
@@ -113,8 +125,9 @@ const EditCompany = () => {
                           <img src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} className={styleEditUser.photoUser} />
                         )
                   }
+                  </div>
 
-                  <div className={styleEditUser.lineSpacing} />
+                  <div className={styleEditUser.lineSpacing}><></></div>
                   <div className="d-flex justify-content-center align-items-center w-100">
                     <img src="/button-edit.svg" />
                     <label htmlFor="files" className={styleEditUser.userPosition}>Edit photo</label>
@@ -138,8 +151,8 @@ const EditCompany = () => {
                   </div>
                 </div>
               </div>
-              <button onClick={(e) => onUpdateCompany(e)} type="submit" className={styleEditUser.buttonSave}>Simpan</button>
-              <button className={styleEditUser.buttonCancel}>Batal</button>
+              <button onClick={(e) => onUpdateCompany(e)} type="submit" className={styleEditUser.buttonSaveEdit}>Simpan</button>
+              <button type="button" onClick={onProfileCompany} className={styleEditUser.buttonCancel}>Batal</button>
             </div>
             <div className={styleEditUser.spasi} />
             <div className={`col-lg-8 col-12 ${styleEditUser.responsiveEditForm}`}>

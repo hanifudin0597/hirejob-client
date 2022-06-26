@@ -1,9 +1,10 @@
 @media screen and (max-width: 700px) {
   .contentListUser {
         margin-top: 20px;
-        margin-left: 5px !important;
+        margin-left: 38px !important;
         margin-right: 5px !important;
         margin-bottom: 20px;
+        width:83%
     }
     .cardListUser {
         width: 85%;

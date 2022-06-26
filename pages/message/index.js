@@ -21,8 +21,7 @@ const Message = () => {
       .then((result) => {
         setMessage(result.data.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
       });
   }, []);
   return (
