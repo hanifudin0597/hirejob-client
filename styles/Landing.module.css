@@ -1,3 +1,40 @@
+@media screen and (max-width: 700px) {
+    .divRight1{
+      display:none !important
+    }
+    .section1{
+      margin-top: -150px !important
+    }
+    .section2{
+      margin-top: -250px !important
+    }
+    .section3{
+      margin-top: -150px !important;
+      margin-left: 5% !important
+    }
+    .section4{
+      margin-top: -100px !important
+    }
+    .section2Responsive{
+       display:none !important
+    }
+    .section3Responsive{
+      display:none !important
+    }
+    .leftContent3{
+      width:100% !important
+    }
+    .divLorem{
+      width:100% !important
+    }
+    .container{
+      height: 250vh !important;
+    }
+    .responsiveFooter{
+      margin-top: 150px !important;
+      z-index:99999999 !important
+    }
+}
 .container {
   height: 335vh;
   position: relative;

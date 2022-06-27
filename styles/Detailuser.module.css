@@ -1,22 +1,17 @@
 @media screen and (max-width: 700px) {
-  /* .CardContent{
-    margin-left:10px !important;
-    width:140%
-  } */
-  .cardDetailUser{
-    width:182%;
-    margin-left:-78px !important
-  }
-  .responsiveDetailPorto{
-    margin-top:550px !important;
-    left:20px;
-    /* margin-left:-250px !important */
-    position:absolute;
-    width:90%
-  }
-  .photoExp {
-    margin-right:30px
-}
+    .cardDetailUser{
+        width:182%;
+        margin-left:-78px !important
+    }
+    .responsiveDetailPorto{
+        margin-top:640px !important;
+        left:20px;
+        position:absolute;
+        width:90%
+    }
+    .photoExp {
+        margin-right:30px
+    }
 }
 
 .header {

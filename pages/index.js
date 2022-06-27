@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-mixed-spaces-and-tabs */
@@ -8,6 +10,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
 import styles from '../styles/Landing.module.css';
 import imgSection1 from '../public/images/section1Landing.jpg';
 import imgSection2 from '../public/images/section2Landing.jpg';
@@ -17,6 +22,14 @@ import Yellowcheckbox from '../public/icon/yellowcheckbox.svg';
 import Navbar from '../components/navbarLanding';
 import styleFooter from '../styles/Footer.module.css';
 import LogoFooter from '../public/logo.svg';
+import UserOpini from '../public/images/useropinion.jpg';
+import UserOpini2 from '../public/images/useropinion2.jpg';
+import UserOpini3 from '../public/images/useropinion3.jpg';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 function Landingpage() {
   return (
@@ -71,7 +84,7 @@ function Landingpage() {
           <section className={`row ${styles.section2}`}>
             <div className="col-1" />
             {/* -------left------ */}
-            <div className="col-5">
+            <div className={`col-5 ${styles.section2Responsive}`}>
               <div className={styles.mainRigh1}>
                 {/* <div className={styles.divSquare}></div> */}
                 <div className={styles.background2} />
@@ -250,7 +263,7 @@ function Landingpage() {
             </div>
 
             {/* ------Right------- */}
-            <div className="col-5">
+            <div className={`col-5 ${styles.section3Responsive}`}>
               <div className={styles.mainRigh1}>
                 {/* <div className={styles.divSquare}></div> */}
                 <div className={styles.background3} />
@@ -275,7 +288,58 @@ function Landingpage() {
               <div className={styles.title4}>
                 <h3>Their opinion about peworld</h3>
               </div>
-              <div className={styles.divCardUser} />
+              <div className={styles.divCardUser}>
+                <Swiper
+                  slidesPerView={3}
+                  spaceBetween={30}
+                  slidesPerGroup={3}
+                  loop
+                  loopFillGroupWithBlank
+                  pagination={{
+                    clickable: true,
+                  }}
+                  navigation
+                  modules={[Pagination, Navigation]}
+                  className="mySwiper"
+                >
+                  <SwiperSlide>
+                    <div className={`card d-flex align-items-center ${styles.responsiveCardSwiper}`} style={{ width: '18rem' }}>
+                      <div style={{ marginTop: '10%' }}>
+                        <Image src={UserOpini} width={100} height={100} style={{ borderRadius: '100%' }} />
+                      </div>
+                      <div className="card-body d-flex flex-column align-items-center">
+                        <h5 className="card-title">Harry Styles</h5>
+                        <h6 style={{ color: '#9EA0A5' }}>Web Developer</h6>
+                        <p className="card-text" style={{ marginLeft: '10%' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className={`card d-flex align-items-center ${styles.responsiveCardSwiper}`} style={{ width: '18rem' }}>
+                      <div style={{ marginTop: '10%' }}>
+                        <Image src={UserOpini2} width={100} height={100} style={{ borderRadius: '100%' }} />
+                      </div>
+                      <div className="card-body d-flex flex-column align-items-center">
+                        <h5 className="card-title">Niall Horan</h5>
+                        <h6 style={{ color: '#9EA0A5' }}>Web Developer</h6>
+                        <p className="card-text" style={{ marginLeft: '10%' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className={`card d-flex align-items-center ${styles.responsiveCardSwiper}`} style={{ width: '18rem' }}>
+                      <div style={{ marginTop: '10%' }}>
+                        <Image src={UserOpini3} width={100} height={100} style={{ borderRadius: '100%' }} />
+                      </div>
+                      <div className="card-body d-flex flex-column align-items-center">
+                        <h5 className="card-title">Louis Tomlinson</h5>
+                        <h6 style={{ color: '#9EA0A5' }}>Web Developer</h6>
+                        <p className="card-text" style={{ marginLeft: '10%' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
             </div>
             <div className="col-1" />
           </section>
@@ -306,7 +370,7 @@ function Landingpage() {
         </div>
 
       </div>
-      <div style={{ marginTop: '150px' }}>
+      <div className={styles.responsiveFooter} style={{ marginTop: '290px' }}>
         <footer className={`${styleFooter.footer}`}>
           <div className={`d-flex flex-column align-items-center h-100 ${styleFooter.footerMargin}`}>
             <div className="w-100 d-flex flex-column justify-content-left align-items-start">
