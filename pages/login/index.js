@@ -55,35 +55,33 @@ export default function login() {
   };
 
   return (
-    <>
-      <div className="row g-0">
-        <Decorauth />
-        <div className="col-md-6">
-          <div className={styleAuth.formInput}>
-            <div className={styleAuth.formGroup}>
-              <h1 className={styleAuth.inputH1}>Halo, Pewpeople</h1>
-              <small className={styleAuth.inputSmall}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</small>
-              <form onSubmit={(e) => onSubmit(e)}>
-                <label className={styleAuth.inputLabel}>Email</label>
-                <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
-                <label className={styleAuth.inputLabel}>Password</label>
-                <input onChange={(e) => setForm({ ...form, password: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
-                <button className={styleAuth.inputButton} type="submit">Masuk</button>
-                <button className={styleAuth.inputButton} onClick={onLoginPerekrut} type="button">Masuk sebagai Perekrut</button>
-                {/* <a className={styleAuth.inputAhref} href="">Forgot Password ?</a> */}
-                <div className={styleAuth.formNoAccount}>
-                  <label className={styleAuth.inputLabel}>Don&apos;t have an account? </label>
-                  <div style={{ marginTop: '13px', marginLeft: '5px' }}>
-                    <Link href="/register" style={{ marginTop: '50px' }} className={styleAuth.inputAhrefLink}>
-                      Daftar disini
-                    </Link>
-                  </div>
+    <div className="row g-0">
+      <Decorauth />
+      <div className="col-md-6">
+        <div className={styleAuth.formInput}>
+          <div className={styleAuth.formGroup}>
+            <h1 className={styleAuth.inputH1}>Halo, Pewpeople</h1>
+            <small className={styleAuth.inputSmall}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</small>
+            <form onSubmit={(e) => onSubmit(e)}>
+              <label className={styleAuth.inputLabel}>Email</label>
+              <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
+              <label className={styleAuth.inputLabel}>Password</label>
+              <input onChange={(e) => setForm({ ...form, password: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
+              <button className={styleAuth.inputButton} type="submit">Masuk</button>
+              <button className={styleAuth.inputButton} onClick={onLoginPerekrut} type="button">Masuk sebagai Perekrut</button>
+              {/* <a className={styleAuth.inputAhref} href="">Forgot Password ?</a> */}
+              <div className={styleAuth.formNoAccount}>
+                <label className={styleAuth.inputLabel}>Don&apos;t have an account? </label>
+                <div style={{ marginTop: '13px', marginLeft: '5px' }}>
+                  <Link href="/register" style={{ marginTop: '50px' }} className={styleAuth.inputAhrefLink}>
+                    Daftar disini
+                  </Link>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

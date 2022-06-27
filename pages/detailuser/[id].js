@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react';
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import {
+  Nav, NavItem, NavLink, TabContent, TabPane,
+} from 'reactstrap';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link';
@@ -15,12 +17,12 @@ export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
   return {
     props: {
-      token
+      token,
     },
   };
 }
 
-const DetailUser = (props) => {
+function DetailUser(props) {
   const [activeTabs, setactiveTabs] = useState('1');
   const router = useRouter();
   const { id } = router.query;
@@ -40,7 +42,7 @@ const DetailUser = (props) => {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         setDataUser(result.data.data.user);
@@ -61,7 +63,7 @@ const DetailUser = (props) => {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         setDataCompany(result.data.data);
@@ -79,19 +81,19 @@ const DetailUser = (props) => {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/portofolio/${id}`, {
           'Access-Control-Allow-Origin': true,
-          headers: { token }
+          headers: { token },
         })
           .then((result) => {
             if (result.data.code === 200) {
               Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',
-                'success'
+                'success',
               );
 
               window.location.href = `/detailuser/${idUser}`;
@@ -110,19 +112,19 @@ const DetailUser = (props) => {
       from: dataCompany.id,
       to: id,
       messageContent: `Hai ${dataUser.name} kami dari ${dataCompany.company_name} telah melihat profile kamu, dan kami tertatik untuk menawarkan pekerjaan di perusahaan kami sebagai web developer. Jika kamu tertarik silahkan hubungi no ini ${dataCompany.phone}`,
-      recruiterId: dataCompany.company_name
+      recruiterId: dataCompany.company_name,
     };
 
     axios.post(`${process.env.NEXT_PUBLIC_API_URL}/message`, body, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         if (result.data.code === 200) {
           Swal.fire(
             'Success',
             'Succes send message to hire',
-            'success'
+            'success',
           );
         }
         router.push(`/detailuser/${id}`);
@@ -154,12 +156,12 @@ const DetailUser = (props) => {
                           <Link href={`/edituser/${id}`}>
                             <label className={styleDetailUser.editProfile}> Edit Profile</label>
                           </Link>
-                        ) :
-                          (
-                            <div><></></div>
+                        )
+                          : (
+                            <div />
                           )
                       ) : (
-                        <div><></></div>
+                        <div />
                       )
                   }
                   </div>
@@ -196,8 +198,8 @@ const DetailUser = (props) => {
                       idUser ? (
                         dataUser.id === idUser ? (
                           <button onClick={() => onLogout()} className={styleDetailUser.buttonLogout}>logout</button>
-                        ) :
-                          (
+                        )
+                          : (
                             <div />
                           )
                       ) : (
@@ -230,14 +232,21 @@ const DetailUser = (props) => {
                       {/* Portofolio */}
                       <div className={`main d-flex flex-row w-100 ${styleDetailUser.formPortofolio}`}>
                         {
-                          (dataPortofolio === '') ? (<div>Loading</div>) :
-                            (
+                          (dataPortofolio === '') ? (<div>Loading</div>)
+                            : (
                               dataPortofolio.map((items, index) => (
                                 <div key={index} style={{ position: 'relative' }} className={`d-flex flex-column align-items-center ${styleDetailUser.detailPortofolio}`}>
                                   <img src={`${process.env.NEXT_PUBLIC_API_URL}/${items.photo}`} className={styleDetailUser.photoPortofolio} />
                                   <label>{items.name}</label>
                                   {idUser === id ? (
-                                    <button onClick={() => onDeletePorto(items.id)} style={{ border: 'none', position: 'absolute', right: '-20px', top: '-10px', borderRadius: '100%', backgroundColor: 'red', color: 'white', paddingLeft: '8px', paddingRight: '8px' }}>X</button>
+                                    <button
+                                      onClick={() => onDeletePorto(items.id)}
+                                      style={{
+                                        border: 'none', position: 'absolute', right: '-20px', top: '-10px', borderRadius: '100%', backgroundColor: 'red', color: 'white', paddingLeft: '8px', paddingRight: '8px',
+                                      }}
+                                    >
+                                      X
+                                    </button>
                                   ) : null}
 
                                 </div>
@@ -249,8 +258,8 @@ const DetailUser = (props) => {
                     <TabPane tabId="2">
                       {/* Pengalaman kerja */}
                       {
-                        (dataExperience === '') ? (<div>Loading</div>) :
-                          (
+                        (dataExperience === '') ? (<div>Loading</div>)
+                          : (
                             dataExperience.map((items, index) => (
                               <div key={index} className="card-body d-flex flex-row w-100">
                                 <div className="col-lg-2">
@@ -277,7 +286,7 @@ const DetailUser = (props) => {
       <Footer />
     </>
   );
-};
+}
 
 DetailUser.layout = 'Layoutnavbar';
 

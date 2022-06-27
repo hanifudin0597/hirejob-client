@@ -6,9 +6,9 @@ const layouts = {
   Layoutnavbar: Navbar,
 };
 
-const NoLayout = ({ children }) => {
+function NoLayout({ children }) {
   return <>{children}</>;
-};
+}
 
 function MyApp({ Component, pageProps }) {
   const Layout = layouts[Component.layout] || NoLayout;

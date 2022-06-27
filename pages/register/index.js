@@ -14,7 +14,7 @@ export default function register() {
     email: '',
     phone: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   });
 
   const onSubmit = (e) => {
@@ -65,41 +65,39 @@ export default function register() {
     window.location.href = '/recruiter/register';
   };
   return (
-    <>
-      <div className={`row g-0 ${styleAuth.contain}`}>
-        <Decorauth />
-        <div className={`col-md-6 ${styleAuth.overflowRegisterScroll}`}>
-          <div className={styleAuth.formInputRegisterWorker}>
-            <div className={styleAuth.formGroup}>
-              <h1 style={{ marginLeft: '120px' }} className={styleAuth.inputH1}>Halo, Pewpeople</h1>
-              <small style={{ marginLeft: '120px', width: '65%' }} className={styleAuth.inputSmall}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</small>
-              <form onSubmit={(e) => onSubmit(e)}>
-                <label className={styleAuth.inputLabel}>Name</label>
-                <input onChange={(e) => setForm({ ...form, name: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
-                <label className={styleAuth.inputLabel}>Email</label>
-                <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="email" placeholder="Password" />
-                <label className={styleAuth.inputLabel}>No Handphone</label>
-                <input onChange={(e) => setForm({ ...form, phone: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
-                <label className={styleAuth.inputLabel}>Kata Sandi</label>
-                <input onChange={(e) => setForm({ ...form, password: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
-                <label className={styleAuth.inputLabel}>Konfirmasi Kata Sansi</label>
-                <input onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
-                <button className={styleAuth.inputButton} type="submit">Daftar Pencari kerja</button>
-              </form>
-              <button onClick={onRegisterPerekrut} className={styleAuth.inputButton}>Daftar Perekrut</button>
-              {/* <a className={styleAuth.inputAhref} href="">Forgot Password ?</a> */}
-              <div className={styleAuth.formNoAccount}>
-                <label className={styleAuth.inputLabel}>Don&apos;t have an account? </label>
-                <div style={{ marginTop: '13px', marginLeft: '5px' }}>
-                  <Link href="/login" style={{ marginTop: '50px' }} className={styleAuth.inputAhrefLink}>
-                    Masuk disini
-                  </Link>
-                </div>
+    <div className={`row g-0 ${styleAuth.contain}`}>
+      <Decorauth />
+      <div className={`col-md-6 ${styleAuth.overflowRegisterScroll}`}>
+        <div className={styleAuth.formInputRegisterWorker}>
+          <div className={styleAuth.formGroup}>
+            <h1 style={{ marginLeft: '120px' }} className={styleAuth.inputH1}>Halo, Pewpeople</h1>
+            <small style={{ marginLeft: '120px', width: '65%' }} className={styleAuth.inputSmall}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</small>
+            <form onSubmit={(e) => onSubmit(e)}>
+              <label className={styleAuth.inputLabel}>Name</label>
+              <input onChange={(e) => setForm({ ...form, name: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
+              <label className={styleAuth.inputLabel}>Email</label>
+              <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="email" placeholder="Password" />
+              <label className={styleAuth.inputLabel}>No Handphone</label>
+              <input onChange={(e) => setForm({ ...form, phone: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
+              <label className={styleAuth.inputLabel}>Kata Sandi</label>
+              <input onChange={(e) => setForm({ ...form, password: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
+              <label className={styleAuth.inputLabel}>Konfirmasi Kata Sansi</label>
+              <input onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
+              <button className={styleAuth.inputButton} type="submit">Daftar Pencari kerja</button>
+            </form>
+            <button onClick={onRegisterPerekrut} className={styleAuth.inputButton}>Daftar Perekrut</button>
+            {/* <a className={styleAuth.inputAhref} href="">Forgot Password ?</a> */}
+            <div className={styleAuth.formNoAccount}>
+              <label className={styleAuth.inputLabel}>Don&apos;t have an account? </label>
+              <div style={{ marginTop: '13px', marginLeft: '5px' }}>
+                <Link href="/login" style={{ marginTop: '50px' }} className={styleAuth.inputAhrefLink}>
+                  Masuk disini
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

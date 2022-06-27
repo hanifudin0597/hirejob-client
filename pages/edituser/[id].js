@@ -13,12 +13,12 @@ export async function getServerSideProps(context) {
   const { token } = context.req.cookies;
   return {
     props: {
-      token
+      token,
     },
   };
 }
 
-const EditUser = (props) => {
+function EditUser(props) {
   const router = useRouter();
   const { id } = router.query;
   const { token } = props;
@@ -41,8 +41,8 @@ const EditUser = (props) => {
         jobPosition: '',
         companyName: '',
         dateJob: '',
-        jobDesc: ''
-      }
+        jobDesc: '',
+      },
     ],
 
   });
@@ -52,9 +52,9 @@ const EditUser = (props) => {
         aplicationName: '',
         linkRepo: '',
         typeApp: '',
-        aplicationPhoto: ''
-      }
-    ]
+        aplicationPhoto: '',
+      },
+    ],
   });
 
   const [photoApp, setPhotoApp] = useState('');
@@ -62,7 +62,7 @@ const EditUser = (props) => {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         setDataUser(result.data.data.user);
@@ -79,7 +79,7 @@ const EditUser = (props) => {
     axios.put(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}/photo`, formData, {
       'Access-Control-Allow-Origin': true,
       headers: { token },
-      'Content-Type': 'multipart/form-data'
+      'Content-Type': 'multipart/form-data',
     })
       .then((result) => {
         console.log(result);
@@ -117,10 +117,10 @@ const EditUser = (props) => {
         address,
         workplace,
         description,
-        skillName: `{${skillName}}`
+        skillName: `{${skillName}}`,
       };
       axios.put(`${process.env.NEXT_PUBLIC_API_URL}/user/${id}`, body, {
-        headers: { token }
+        headers: { token },
       })
         .then((response) => {
           console.log(response);
@@ -135,7 +135,7 @@ const EditUser = (props) => {
         description: Exp.experience[0].jobDesc,
       };
       axios.post(`${process.env.NEXT_PUBLIC_API_URL}/experience`, Experience, {
-        headers: { token }
+        headers: { token },
       })
         .then((responseExp) => {
           console.log(responseExp);
@@ -152,7 +152,7 @@ const EditUser = (props) => {
       axios.post(`${process.env.NEXT_PUBLIC_API_URL}/portofolio`, formData, {
         'Access-Control-Allow-Origin': true,
         headers: { token },
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
       })
         .then((responsePort) => {
           console.log(responsePort);
@@ -164,7 +164,7 @@ const EditUser = (props) => {
       Swal.fire(
         'Success!',
         'Update profile success!',
-        'success'
+        'success',
       );
       router.push(`/detailuser/${id}`);
     }
@@ -179,9 +179,9 @@ const EditUser = (props) => {
           aplicationName: '',
           linkRepo: '',
           typeApp: '',
-          aplicationPhoto: ''
-        }
-      ]
+          aplicationPhoto: '',
+        },
+      ],
     });
   };
   const handleInputPorto = (e, index) => {
@@ -196,7 +196,7 @@ const EditUser = (props) => {
     });
 
     setForm({
-      portofolio: newPorto
+      portofolio: newPorto,
     });
   };
   const deletePorto = (index) => {
@@ -207,7 +207,7 @@ const EditUser = (props) => {
     });
 
     setForm({
-      portofolio: newPorto
+      portofolio: newPorto,
     });
   };
 
@@ -220,9 +220,9 @@ const EditUser = (props) => {
           jobPosition: '',
           companyName: '',
           dateJob: '',
-          jobDesc: ''
-        }
-      ]
+          jobDesc: '',
+        },
+      ],
     });
   };
   const handleInputExp = (e, index) => {
@@ -237,7 +237,7 @@ const EditUser = (props) => {
     });
 
     setExp({
-      experience: newExp
+      experience: newExp,
     });
   };
   const deleteExp = (index) => {
@@ -248,7 +248,7 @@ const EditUser = (props) => {
     });
 
     setExp({
-      experience: newExp
+      experience: newExp,
     });
   };
   const onDetailProfile = () => {
@@ -265,8 +265,8 @@ const EditUser = (props) => {
                   {
                       dataUser.photo ? (
                         <img src={`${process.env.NEXT_PUBLIC_API_URL}/${dataUser.photo}`} className={styleEditUser.photoUser} />
-                      ) :
-                        (
+                      )
+                        : (
                           <img src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} className={styleEditUser.photoUser} />
                         )
                   }
@@ -305,8 +305,8 @@ const EditUser = (props) => {
                 <div className={`card ${styleEditUser.marginCard}`}>
                   <div className="card-body d-flex flex-column">
                     {
-                        (dataUser === '') ? (<div>Loading</div>) :
-                          (
+                        (dataUser === '') ? (<div>Loading</div>)
+                          : (
                             <>
                               <label className={styleEditUser.labelProfile}>Data diri</label>
                               <label className={styleEditUser.labelInput}>Nama lengkap</label>
@@ -440,7 +440,7 @@ const EditUser = (props) => {
       <Footer />
     </>
   );
-};
+}
 
 EditUser.layout = 'Layoutnavbar';
 

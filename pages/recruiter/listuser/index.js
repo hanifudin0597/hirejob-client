@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
@@ -22,7 +22,7 @@ export async function getServerSideProps(context) {
       props: {
         data: response.data,
         error: false,
-        errorMessage: ''
+        errorMessage: '',
       },
     };
   } catch (error) {
@@ -30,13 +30,13 @@ export async function getServerSideProps(context) {
       props: {
         data: [],
         error: true,
-        errorMessage: 'Error'
+        errorMessage: 'Error',
       },
     };
   }
 }
 
-const ListUser = (props) => {
+function ListUser(props) {
   const router = useRouter();
   const { search, sort } = router.query;
 
@@ -162,7 +162,7 @@ const ListUser = (props) => {
       <Footer />
     </>
   );
-};
+}
 
 ListUser.layout = 'Layoutnavbar';
 

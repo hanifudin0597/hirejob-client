@@ -23,7 +23,7 @@ export default function navbar() {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/${idUser}`, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         setDataUser(result.data.data.user);
@@ -36,7 +36,7 @@ export default function navbar() {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         // console.log(result.data.data)

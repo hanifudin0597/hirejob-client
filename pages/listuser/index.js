@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
       props: {
         data: response.data,
         error: false,
-        errorMessage: ''
+        errorMessage: '',
       },
     };
   } catch (error) {
@@ -33,13 +33,13 @@ export async function getServerSideProps(context) {
       props: {
         data: [],
         error: true,
-        errorMessage: 'Error'
+        errorMessage: 'Error',
       },
     };
   }
 }
 
-const ListUser = (props) => {
+function ListUser(props) {
   const router = useRouter();
   const { search, sort } = router.query;
 
@@ -165,7 +165,7 @@ const ListUser = (props) => {
       <Footer />
     </>
   );
-};
+}
 
 ListUser.layout = 'Layoutnavbar';
 

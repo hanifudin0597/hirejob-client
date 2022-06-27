@@ -6,7 +6,7 @@ import Cookie from 'js-cookie';
 import styleEditUser from '../../../styles/Editcompany.module.css';
 import Footer from '../../../components/footer';
 
-const EditCompany = () => {
+function EditCompany() {
   const idUser = Cookie.get('idUser');
   const token = Cookie.get('token');
   const [photo, setPhoto] = useState('');
@@ -20,7 +20,7 @@ const EditCompany = () => {
     emailCompany: '',
     instagram: '',
     phoneCompany: '',
-    linkedin: ''
+    linkedin: '',
   });
 
   const body = {
@@ -31,13 +31,13 @@ const EditCompany = () => {
     emailCompany: form.emailCompany,
     instagram: form.instagram,
     phoneCompany: form.phoneCompany,
-    linkedin: form.linkedin
+    linkedin: form.linkedin,
   };
 
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         // console.log(result)
@@ -52,7 +52,7 @@ const EditCompany = () => {
 
     axios.put(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, body, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         if (result.data.code === 200) {
@@ -81,7 +81,7 @@ const EditCompany = () => {
     axios.put(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}/photo`, formData, {
       'Access-Control-Allow-Origin': true,
       headers: { token },
-      'Content-Type': 'multipart/form-data'
+      'Content-Type': 'multipart/form-data',
     })
       .then((result) => {
         if (result.data.code === 200) {
@@ -120,14 +120,14 @@ const EditCompany = () => {
                     {
                       dataCompany.photo ? (
                         <img src={`${process.env.NEXT_PUBLIC_API_URL}/${dataCompany.photo}`} className={styleEditUser.photoUser} />
-                      ) :
-                        (
+                      )
+                        : (
                           <img src={`${process.env.NEXT_PUBLIC_API_URL}/user.png`} className={styleEditUser.photoUser} />
                         )
                   }
                   </div>
 
-                  <div className={styleEditUser.lineSpacing}><></></div>
+                  <div className={styleEditUser.lineSpacing} />
                   <div className="d-flex justify-content-center align-items-center w-100">
                     <img src="/button-edit.svg" />
                     <label htmlFor="files" className={styleEditUser.userPosition}>Edit photo</label>
@@ -198,7 +198,7 @@ const EditCompany = () => {
       <Footer />
     </>
   );
-};
+}
 
 EditCompany.layout = 'Layoutnavbar';
 

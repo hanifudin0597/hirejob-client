@@ -18,7 +18,7 @@ import Navbar from '../components/navbarLanding';
 import styleFooter from '../styles/Footer.module.css';
 import LogoFooter from '../public/logo.svg';
 
-const Landingpage = () => {
+function Landingpage() {
   return (
     <>
       <Head>
@@ -275,18 +275,21 @@ const Landingpage = () => {
               <div className={styles.title4}>
                 <h3>Their opinion about peworld</h3>
               </div>
-              <div className={styles.divCardUser}>
-                <></>
-              </div>
+              <div className={styles.divCardUser} />
             </div>
             <div className="col-1" />
           </section>
 
           {/* ------------------section------------------------ */}
           <section className="row">
-            <div className="col-1"><></></div>
+            <div className="col-1" />
             <div className="col-10">
-              <div style={{ backgroundColor: '#5E50A1', minHeight: '200px', paddingTop: '6%', borderTopLeftRadius: '50px', borderBottomLeftRadius: '5px', borderBottomRightRadius: '50px', borderTopRightRadius: '5px', marginTop: '50px' }} className="container">
+              <div
+                style={{
+                  backgroundColor: '#5E50A1', minHeight: '200px', paddingTop: '6%', borderTopLeftRadius: '50px', borderBottomLeftRadius: '5px', borderBottomRightRadius: '50px', borderTopRightRadius: '5px', marginTop: '50px',
+                }}
+                className="container"
+              >
                 <div className={styles.invitation}>
                   <div className="d-block d-md-flex justify-content-between">
                     <h3 style={{ maxWidth: '300px', color: 'white' }}>Lorem ipsum dolor sit amet.</h3>
@@ -298,7 +301,7 @@ const Landingpage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-1"><></></div>
+            <div className="col-1" />
           </section>
         </div>
 
@@ -330,6 +333,6 @@ const Landingpage = () => {
       </div>
     </>
   );
-};
+}
 
 export default Landingpage;

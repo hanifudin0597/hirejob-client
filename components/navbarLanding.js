@@ -21,8 +21,22 @@ export default function navbarLanding() {
           />
           <div className={` d-flex ${styleNavbar.navContent}`}>
             <div>
-              <button onClick={onLogin} style={{ border: '2px solid #5E50A1', borderRadius: '5px', height: '40px', width: '80px', marginRight: '10px', backgroundColor: 'white' }}>Masuk</button>
-              <button onClick={onRegister} style={{ border: '2px solid #5E50A1', borderRadius: '5px', height: '40px', width: '80px', marginRight: '10px', backgroundColor: '#5E50A1', color: 'white' }}>Daftar</button>
+              <button
+                onClick={onLogin}
+                style={{
+                  border: '2px solid #5E50A1', borderRadius: '5px', height: '40px', width: '80px', marginRight: '10px', backgroundColor: 'white',
+                }}
+              >
+                Masuk
+              </button>
+              <button
+                onClick={onRegister}
+                style={{
+                  border: '2px solid #5E50A1', borderRadius: '5px', height: '40px', width: '80px', marginRight: '10px', backgroundColor: '#5E50A1', color: 'white',
+                }}
+              >
+                Daftar
+              </button>
             </div>
           </div>
         </div>

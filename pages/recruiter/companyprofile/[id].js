@@ -7,7 +7,7 @@ import Cookie from 'js-cookie';
 import styleEditCompany from '../../../styles/Editcompany.module.css';
 import Footer from '../../../components/footer';
 
-const EditCompany = () => {
+function EditCompany() {
   const idUser = Cookie.get('idUser');
   const token = Cookie.get('token');
   const [dataCompany, setDataCompany] = useState('');
@@ -15,7 +15,7 @@ const EditCompany = () => {
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/company/${idUser}`, {
       'Access-Control-Allow-Origin': true,
-      headers: { token }
+      headers: { token },
     })
       .then((result) => {
         // console.log(result.data.data)
@@ -79,7 +79,7 @@ const EditCompany = () => {
       <Footer />
     </>
   );
-};
+}
 
 EditCompany.layout = 'Layoutnavbar';
 
