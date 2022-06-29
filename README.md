@@ -1,7 +1,7 @@
 <br />
 <p align="center">
 <div align="center">
-  <img height="150" src="/screenshots/logo.PNG"/>
+  <img height="150" src="/screenshots/logo.png"/>
 </div>
   <h3 align="center">Hire Job</h3>
   <p align="center">
@@ -83,15 +83,15 @@ NEXT_PUBLIC_API_URL = [BACKEND_URL]
 ## Screenshots
 
 <div align="center">
-  <img width="250px" src="/screenshots/chat.png" alt="1" />
-  <img width="250px" src="/screenshots/editprofile.png" alt="2" />
-  <img width="250px" src="/screenshots/hirepeople.png" alt="3" /> 
-  <img width="250px" src="/screenshots/home.png" alt="4" />
-  <img width="250px" src="/screenshots/landing.png" alt="5" />
-  <img width="250px" src="/screenshots/login.png" alt="6" /> 
-  <img width="250px" src="/screenshots/register.png" alt="7" />
-  <img width="250px" src="/screenshots/myprofile.png" alt="8" />
-  <img width="250px" src="/screenshots/profilecompany.png" alt="9" />
+  <img width="250px" src="/screenshots/chat.PNG" alt="1" />
+  <img width="250px" src="/screenshots/editprofile.PNG" alt="2" />
+  <img width="250px" src="/screenshots/hirepeople.PNG" alt="3" /> 
+  <img width="250px" src="/screenshots/home.PNG" alt="4" />
+  <img width="250px" src="/screenshots/landing.PNG" alt="5" />
+  <img width="250px" src="/screenshots/login.PNG" alt="6" /> 
+  <img width="250px" src="/screenshots/register.PNG" alt="7" />
+  <img width="250px" src="/screenshots/myprofile.PNG" alt="8" />
+  <img width="250px" src="/screenshots/profilecompany.PNG" alt="9" />
 </div>
 
 <!-- CONTRIBUTING -->
