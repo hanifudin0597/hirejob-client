@@ -166,7 +166,7 @@ function EditUser(props) {
         'Update profile success!',
         'success',
       );
-      router.push(`/detailuser/${id}`);
+      // router.push(`/detailuser/${id}`);
     }
   };
 

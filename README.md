@@ -1,34 +1,122 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br />
+<p align="center">
+<div align="center">
+  <img height="150" src="/screenshots/logo.PNG"/>
+</div>
+  <h3 align="center">Hire Job</h3>
+  <p align="center">
+    <a href="https://github.com/hanifudin0597/hirejob-client"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="https://hire-job.netlify.app/">View Demo</a>
+    ·
+    <a href="https://github.com/hanifudin0597/hirejob-client/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/hanifudin0597/hirejob-client/issues">Request Feature</a>
+  </p>
+</p>
 
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Setup .env](#setup-env)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [Related Project](#related-project)
+- [Contact](#contact)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+The Hirejob website application is an application that makes it easy for someone to find work and recruit people who are looking for work. This application is built using Express JS and Next JS. The features in this application are login, register, list of job seekers, job seeker details, edit profile, and chat to recruit job seekers.
+
+### Built With
+
+- [Bootstrap Css](https://getbootstrap.com/)
+- [Next js](https://nextjs.org/)
+- and other
+
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
+This is an example of how to list things you need to use the software and how to install them.
+
+* [nodejs](https://nodejs.org/en/download/)
+
+### Installation
+
+- Clone This Front End Repo
+```
+git clone https://github.com/hanifudin0597/hirejob-client.git
+```
+- Go To Folder Repo
+```
+cd hirejob-client
+```
+- Install Module
+```
+npm install
+```
+- <a href="#setup-env">Setup .env</a>
+- Type ` npm run dev` To Start Website
+- Type ` npm run production` To Start Production
+
+### Setup .env
+Create .env file in your root project folder.
+```
+NEXT_PUBLIC_API_URL = [BACKEND_URL]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- ROADMAP -->
+## Screenshots
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<div align="center">
+  <img width="250px" src="/screenshots/chat.png" alt="1" />
+  <img width="250px" src="/screenshots/editprofile.png" alt="2" />
+  <img width="250px" src="/screenshots/hirepeople.png" alt="3" /> 
+  <img width="250px" src="/screenshots/home.png" alt="4" />
+  <img width="250px" src="/screenshots/landing.png" alt="5" />
+  <img width="250px" src="/screenshots/login.png" alt="6" /> 
+  <img width="250px" src="/screenshots/register.png" alt="7" />
+  <img width="250px" src="/screenshots/myprofile.png" alt="8" />
+  <img width="250px" src="/screenshots/profilecompany.png" alt="9" />
+</div>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<!-- CONTRIBUTING -->
+## Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Learn More
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Related Project
+:rocket: [`Backend Hire Job`](https://github.com/hanifudin0597/hirejob-api)
 
-## Deploy on Vercel
+:rocket: [`Frontend Hire Job`](https://github.com/hanifudin0597/hirejob-client)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+:rocket: [`Demo Hire Job`](https://hire-job.netlify.app/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- CONTACT -->
+## Contact
+
+My Email : hanifudin0597@gmail.com
+
+Project Link: [https://github.com/hanifudin0597/hirejob-client](https://github.com/hanifudin0597/hirejob-client)
