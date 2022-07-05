@@ -82,7 +82,7 @@ NEXT_PUBLIC_API_URL = [BACKEND_URL]
 <!-- ROADMAP -->
 ## Screenshots
 
-<div align="center">
+<!-- <div align="center">
   <img width="250px" src="/screenshots/chat.PNG" alt="1" />
   <img width="250px" src="/screenshots/editprofile.PNG" alt="2" />
   <img width="250px" src="/screenshots/hirepeople.PNG" alt="3" /> 
@@ -92,7 +92,51 @@ NEXT_PUBLIC_API_URL = [BACKEND_URL]
   <img width="250px" src="/screenshots/register.PNG" alt="7" />
   <img width="250px" src="/screenshots/myprofile.PNG" alt="8" />
   <img width="250px" src="/screenshots/profilecompany.PNG" alt="9" />
-</div>
+</div> -->
+
+<table>
+ <tr>
+    <td><img width="350px" src="/screenshots/chat.PNG" alt="1" /></td>
+    <td> <img width="350px" src="/screenshots/editprofile.PNG" alt="2" /></td>
+  </tr>
+   <tr>
+    <td>Chat</td>
+    <td>Edit Profile</td>
+  </tr>
+
+  <tr>
+    <td><img width="350px" src="/screenshots/hirepeople.PNG" alt="3" /> </td>
+     <td><img width="350px" src="/screenshots/home.PNG" alt="4" /></td>
+  </tr>
+   <tr>
+    <td>Hire People</td>
+     <td>Home</td>
+  </tr>
+  
+  <tr>
+    <td><img width="350px" src="/screenshots/landing.PNG" alt="5" /></td>
+    <td>  <img width="350px" src="/screenshots/login.PNG" alt="6" /> </td>
+  </tr>
+  <tr>
+    <td>Landing</td>
+    <td>Login</td>
+  </tr>
+   <tr>
+    <td><img width="350px" src="/screenshots/register.PNG" alt="7" /> </td>
+     <td><img width="350px" src="/screenshots/myprofile.PNG" alt="8" /></td>
+  </tr>
+   <tr>
+    <td>Register</td>
+     <td>My Profile</td>
+  </tr>
+  
+  <tr>
+    <td><img width="350px" src="/screenshots/profilecompany.PNG" alt="9" /></td>
+  </tr>
+  <tr>
+    <td>Profile Company</td>
+  </tr>
+</table>
 
 <!-- CONTRIBUTING -->
 ## Contributing
