@@ -60,7 +60,7 @@ export default function login() {
             <small className={styleAuth.inputSmall}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</small>
             <form onSubmit={(e) => onSubmit(e)}>
               <label className={styleAuth.inputLabel}>Email</label>
-              <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
+              <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="Email Address" />
               <label className={styleAuth.inputLabel}>Password</label>
               <input onChange={(e) => setForm({ ...form, password: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
               <button className={styleAuth.inputButton} type="submit">Masuk</button>

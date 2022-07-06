@@ -74,15 +74,15 @@ export default function register() {
             <small style={{ marginLeft: '120px', width: '65%' }} className={styleAuth.inputSmall}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</small>
             <form onSubmit={(e) => onSubmit(e)}>
               <label className={styleAuth.inputLabel}>Name</label>
-              <input onChange={(e) => setForm({ ...form, name: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
+              <input onChange={(e) => setForm({ ...form, name: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="Name" />
               <label className={styleAuth.inputLabel}>Email</label>
-              <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="email" placeholder="Password" />
+              <input onChange={(e) => setForm({ ...form, email: e.target.value })} className={styleAuth.formInputType} type="email" placeholder="Email Address" />
               <label className={styleAuth.inputLabel}>No Handphone</label>
-              <input onChange={(e) => setForm({ ...form, phone: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="examplexxx@gmail.com" />
+              <input onChange={(e) => setForm({ ...form, phone: e.target.value })} className={styleAuth.formInputType} type="text" placeholder="Phone Number" />
               <label className={styleAuth.inputLabel}>Kata Sandi</label>
               <input onChange={(e) => setForm({ ...form, password: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
               <label className={styleAuth.inputLabel}>Konfirmasi Kata Sansi</label>
-              <input onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Password" />
+              <input onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })} className={styleAuth.formInputType} type="password" placeholder="Confirm Password" />
               <button className={styleAuth.inputButton} type="submit">Daftar Pencari kerja</button>
             </form>
             <button onClick={onRegisterPerekrut} className={styleAuth.inputButton}>Daftar Perekrut</button>
